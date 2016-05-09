@@ -187,12 +187,9 @@ public class KlantDAOImpl implements KlantDAO {
             if (resultSet.isBeforeFirst()) {
                 resultSet.next();
                 klant.setKlantID(resultSet.getInt(1));
-            }
-            //---resultSet = statement.executeQuery();-- werkt hier niet dus rowSet gebruikt
-            int rowSet = statement.executeUpdate();
-            if (rowSet > 0) {
-                isCreated = true;
             }            
+            statement.executeUpdate();            
+            isCreated = true;                      
         } finally {
             if (resultSet != null) {
                 try {
@@ -224,12 +221,9 @@ public class KlantDAOImpl implements KlantDAO {
             statement.setString(2, klant.getAchternaam());
             statement.setString(3, klant.getTussenvoegsel());
             statement.setString(4, klant.getEmail());
-            statement.setInt(5, klant.getKlantID());
-            //---resultSet = statement.executeQuery(); /// ook hier werken met RowSet
-            int rowSet = statement.executeUpdate();
-            if (rowSet > 0) {
-                isUpdated = true;
-            }
+            statement.setInt(5, klant.getKlantID());            
+            statement.executeUpdate();            
+            isUpdated = true;            
         } finally {
             // kijk of er verbinding is en zo ja sluit deze
             if (resultSet != null) {
