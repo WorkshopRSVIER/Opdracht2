@@ -9,8 +9,8 @@
  * @author h_hag
  */
 public class Klant {
-    int klantID;
-    String voornaam, achternaam, tussenvoegsel, email;
+    private int klantID;
+    private String voornaam, achternaam, tussenvoegsel, email;
 
     public int getKlantID() {
         return klantID;
@@ -50,6 +50,11 @@ public class Klant {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Klant{" + "klantID=" + klantID + ", voornaam=" + voornaam + ", achternaam=" + achternaam + ", tussenvoegsel=" + tussenvoegsel + ", email=" + email + '}';
     }
     
 }
